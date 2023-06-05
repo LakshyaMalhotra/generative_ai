@@ -10,7 +10,7 @@ def plot_images(indices: np.ndarray, samples: torch.Tensor):
     ax = ax.flatten()
     images = samples[0].numpy().squeeze()
     for i in range(len(indices)):
-        image, label = (images[i], samples[1].item())
+        image, label = (images[i], samples[1][i].item())
         ax[i].imshow(image, cmap="gray")
         ax[i].set_title(f"label:{label}")
         ax[i].set_axis_off()
