@@ -3,13 +3,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def plot_images(indices: np.ndarray, samples: torch.Tensor):
+def plot_images(samples: torch.Tensor):
     fig, ax = plt.subplots(
-        nrows=4, ncols=8, sharex=True, sharey=True, dpi=100, figsize=(8, 8)
+        nrows=4, ncols=8, sharex=True, sharey=True, dpi=100, figsize=(8, 4)
     )
     ax = ax.flatten()
     images = samples[0].numpy().squeeze()
-    for i in range(len(indices)):
+    for i in range(samples[0].shape[0]):
         image, label = (images[i], samples[1][i].item())
         ax[i].imshow(image, cmap="gray")
         ax[i].set_title(f"label:{label}")
